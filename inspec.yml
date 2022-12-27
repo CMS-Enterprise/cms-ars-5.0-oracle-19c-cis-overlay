@@ -1,5 +1,5 @@
 name: cms-ars-5.0-oracle-database-19c-cis-overlay
-title: Oracle Database 19c based on 19c CIS Benchmark
+title: cms-ars-5.0-oracle-database-19c-cis-overlay
 maintainer: MITRE SAF Team
 copyright: MITRE, 2022
 copyright_email: saf@groups.mitre.org
