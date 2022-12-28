@@ -75,7 +75,9 @@ inputs:
   - name: password_life_time
     description:
     type: Numeric
+    <% if ENV['BASELINE'] == 'High-HVA' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'] == 'Low-HVA' %>
     value: 60
+    <% end %>
     profile: oracle-database-19c-cis-baseline
 
 # oracle19c-3.8
@@ -86,3 +88,15 @@ inputs:
     value: 1
     <% end %>
     profile: oracle-database-19c-cis-baseline
+  
+# oracle19c-3.9
+  - name: inactive_account_time
+    description:
+    type: Numeric
+    <% if ENV['BASELINE'] == 'High' %>
+    value: 30
+    <% elsif ENV['BASELINE'] == 'Moderate' %>
+    value: 60
+    <% end %>
+
+    
