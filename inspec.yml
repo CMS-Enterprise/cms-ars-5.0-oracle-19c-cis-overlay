@@ -49,17 +49,6 @@ inputs:
       - "oracle19c-4.5" # SC-28
     <% end %>
 
-# oracle19c-2.2.10
-  - name: sec_max_failed_login_attempts
-    description: 'Number of maximum failed login attempts, in seconds'
-    type: Numeric
-    <% if ENV['BASELINE'] == 'High' %>
-    value: 3
-    <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'].nil? || ENV['BASELINE'] == 'Low' %> # Default
-    value: 5
-    <% end %>
-    profile: oracle-database-19c-cis-baseline
-
 # oracle19c-3.1
   - name: failed_login_attempts
     description: 'Number of failed login attemps'
@@ -99,4 +88,4 @@ inputs:
     value: 60
     <% end %>
 
-    
+
