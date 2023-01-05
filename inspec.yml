@@ -19,11 +19,17 @@ inputs:
     <% if ENV['BASELINE'] == 'High-HVA' %>
     value: []
     <% elsif ENV['BASELINE'] == 'High' %>
-    value: []
+    value: 
+      - "oracle19c-3.3" # AC-2
+      - "oracle19c-3.4" # AC-2
+      - "oracle19c-3.5" # AC-2
     <% elsif ENV['BASELINE'] == 'Moderate-HVA' %>
     value: []
     <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'].nil? %> # Default
     value: 
+      - "oracle19c-3.3" # AC-2
+      - "oracle19c-3.4" # AC-2
+      - "oracle19c-3.5" # AC-2
       - "oracle19c-6.1.12" # CM-6 (2)
       - "oracle19c-6.1.3"  # CM-6 (2)
     <% elsif ENV['BASELINE'] == 'Low-HVA' %>
@@ -33,6 +39,9 @@ inputs:
       - "oracle19c-2.1.1" # AC-6 
       - "oracle19c-2.2.11" # AC-6 
       - "oracle19c-2.2.14" # AC-6 
+      - "oracle19c-3.3" # AC-2
+      - "oracle19c-3.4" # AC-2
+      - "oracle19c-3.5" # AC-2
       - "oracle19c-3.8" # AC-6 
       - "oracle19c-3.9" # AC-6 
       - "oracle19c-4.2" # AC-6 
