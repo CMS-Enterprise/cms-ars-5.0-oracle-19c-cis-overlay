@@ -48,7 +48,7 @@ inputs:
 
 # oracle19c-3.8
   - name: sessions_per_user
-    description:
+    description: 'Number of concurrent sessions allowed'
     type: Numeric
     <% if ENV['BASELINE'] == 'High' %>
     value: 1
