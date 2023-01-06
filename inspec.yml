@@ -50,7 +50,7 @@ inputs:
   - name: sessions_per_user
     description: 'Number of concurrent sessions allowed'
     type: Numeric
-    <% if ENV['BASELINE'] == 'High' %>
+    <% if ENV['BASELINE'] == 'High' || ENV['BASELINE'] == 'High-HVA' %>
     value: 1
     <% end %>
     profile: oracle-database-19c-cis-baseline
