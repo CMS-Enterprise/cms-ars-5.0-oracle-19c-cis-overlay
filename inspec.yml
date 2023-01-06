@@ -39,7 +39,7 @@ inputs:
 
 # oracle19c-3.3
   - name: password_life_time
-    description:
+    description: 'Number of days after which passwords are required to be changed'
     type: Numeric
     <% if ENV['BASELINE'] == 'High-HVA' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'] == 'Low-HVA' %>
     value: 60
