@@ -64,6 +64,7 @@ inputs:
     <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'].nil? %>
     value: 60
     <% end %>
+    profile: oracle-database-19c-cis-baseline
 
   - name: overlay_controls
     desc: 'List of inapplicable controls/requirements in ARS 5.0 based on the system categorization'
