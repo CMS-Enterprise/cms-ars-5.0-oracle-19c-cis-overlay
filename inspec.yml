@@ -17,9 +17,9 @@ inputs:
   - name: failed_login_attempts
     description: 'Number of failed login attempts'
     type: Numeric
-    <% if ENV['BASELINE'] == 'High' %>
+    <% if ENV['BASELINE'] == 'High' || ENV['BASELINE'] == 'High-HVA' %>
     value: 3
-    <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'].nil? || ENV['BASELINE'] == 'Low' %> # Default
+    <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'] == 'Low' || ENV['BASELINE'] == 'Low-HVA' || ENV['BASELINE'].nil? %> # Default
     value: 5
     <% end %>
     profile: oracle-database-19c-cis-baseline
