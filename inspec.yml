@@ -13,6 +13,45 @@ depends:
     url: https://github.com/mitre/oracle-database-19c-cis-baseline/archive/parameterize.tar.gz
 
 inputs:
+# oracle19c-3.1
+  - name: failed_login_attempts
+    description: 'Number of failed login attemps'
+    type: Numeric
+    <% if ENV['BASELINE'] == 'High' %>
+    value: 3
+    <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'].nil? || ENV['BASELINE'] == 'Low' %> # Default
+    value: 5
+    <% end %>
+    profile: oracle-database-19c-cis-baseline
+
+# oracle19c-3.3
+  - name: password_life_time
+    description:
+    type: Numeric
+    <% if ENV['BASELINE'] == 'High-HVA' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'] == 'Low-HVA' %>
+    value: 60
+    <% end %>
+    profile: oracle-database-19c-cis-baseline
+
+# oracle19c-3.8
+  - name: sessions_per_user
+    description:
+    type: Numeric
+    <% if ENV['BASELINE'] == 'High' %>
+    value: 1
+    <% end %>
+    profile: oracle-database-19c-cis-baseline
+  
+# oracle19c-3.9
+  - name: inactive_account_time
+    description:
+    type: Numeric
+    <% if ENV['BASELINE'] == 'High' %>
+    value: 30
+    <% elsif ENV['BASELINE'] == 'Moderate' %>
+    value: 60
+    <% end %>
+
   - name: overlay_controls
     desc: 'List of inapplicable controls/requirements in ARS 5.0 based on the system categorization'
     type: Array
@@ -57,44 +96,3 @@ inputs:
       - "oracle19c-5.2.8" # SC - 8
       - "oracle19c-4.5" # SC-28
     <% end %>
-
-# oracle19c-3.1
-  - name: failed_login_attempts
-    description: 'Number of failed login attemps'
-    type: Numeric
-    <% if ENV['BASELINE'] == 'High' %>
-    value: 3
-    <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'].nil? || ENV['BASELINE'] == 'Low' %> # Default
-    value: 5
-    <% end %>
-    profile: oracle-database-19c-cis-baseline
-
-# oracle19c-3.3
-  - name: password_life_time
-    description:
-    type: Numeric
-    <% if ENV['BASELINE'] == 'High-HVA' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'] == 'Low-HVA' %>
-    value: 60
-    <% end %>
-    profile: oracle-database-19c-cis-baseline
-
-# oracle19c-3.8
-  - name: sessions_per_user
-    description:
-    type: Numeric
-    <% if ENV['BASELINE'] == 'High' %>
-    value: 1
-    <% end %>
-    profile: oracle-database-19c-cis-baseline
-  
-# oracle19c-3.9
-  - name: inactive_account_time
-    description:
-    type: Numeric
-    <% if ENV['BASELINE'] == 'High' %>
-    value: 30
-    <% elsif ENV['BASELINE'] == 'Moderate' %>
-    value: 60
-    <% end %>
-
-
