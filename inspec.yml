@@ -59,9 +59,9 @@ inputs:
   - name: inactive_account_time
     description: 'Number of days of inactivity after which account is locked'
     type: Numeric
-    <% if ENV['BASELINE'] == 'High' %>
+    <% if ENV['BASELINE'] == 'High' || ENV['BASELINE'] == 'High-HVA' %>
     value: 30
-    <% elsif ENV['BASELINE'] == 'Moderate' %>
+    <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'].nil? %>
     value: 60
     <% end %>
 
