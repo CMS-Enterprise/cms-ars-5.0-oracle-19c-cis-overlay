@@ -44,7 +44,7 @@ inputs:
     type: String
     <% if ENV['BASELINE'] == 'High' || ENV['BASELINE'] == 'High-HVA' %>
     value: 'UNLIMITED' # decoded to '9999' | locked until released by admin
-    <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'].nil? %>
+    <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'] == 'Moderate-HVA' || ENV['BASELINE'].nil? %>
     value: '1/24' # 1 hour
     <% elsif ENV['BASELINE'] == 'Low' || ENV['BASELINE'] == 'Low-HVA' %>
     value: '1/96' # 15 minutes
@@ -55,7 +55,7 @@ inputs:
   - name: password_life_time
     description: 'Number of days after which passwords are required to be changed'
     type: Numeric
-    <% if ENV['BASELINE'] == 'High-HVA' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'] == 'Low-HVA' %>
+    <% if ENV['BASELINE'] == 'High-HVA' || ENV['BASELINE'] == 'Moderate-HVA' || ENV['BASELINE'] == 'Low-HVA' %>
     value: 60
     <% end %>
     profile: oracle-database-19c-cis-baseline
@@ -64,7 +64,7 @@ inputs:
   - name: password_reuse_max
     description: 'Number of password changes required before the current password can be reused. Acceptable values are any integer or "UNLIMITED" to disallow reuse'
     type: String
-    <% if ENV['BASELINE'] == 'High-HVA' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'] == 'Low-HVA' %>
+    <% if ENV['BASELINE'] == 'High-HVA' || ENV['BASELINE'] == 'Moderate-HVA' || ENV['BASELINE'] == 'Low-HVA' %>
     value: 'UNLIMITED' # decoded to '9999' | reuse disallowed
     <% end %>
     profile: oracle-database-19c-cis-baseline
@@ -73,7 +73,7 @@ inputs:
   - name: password_grace_time
     description: 'Number of days that can pass after password expiration before account lockout'
     type: Numeric
-    <% if ENV['BASELINE'] == 'High-HVA' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'] == 'Low-HVA' %>
+    <% if ENV['BASELINE'] == 'High-HVA' || ENV['BASELINE'] == 'Moderate-HVA' || ENV['BASELINE'] == 'Low-HVA' %>
     value: 0
     <% end %>
     profile: oracle-database-19c-cis-baseline
@@ -93,7 +93,7 @@ inputs:
     type: Numeric
     <% if ENV['BASELINE'] == 'High' || ENV['BASELINE'] == 'High-HVA' %>
     value: 30
-    <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'].nil? %>
+    <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'] == 'Moderate-HVA' || ENV['BASELINE'].nil? %>
     value: 60
     <% end %>
     profile: oracle-database-19c-cis-baseline
