@@ -46,6 +46,15 @@ inputs:
     <% end %>
     profile: oracle-database-19c-cis-baseline
 
+# oracle19c-3.6
+  - name: password_grace_time
+    description: 'Number of days that can pass after password expiration before account lockout'
+    type: Numeric
+    <% if ENV['BASELINE'] == 'High-HVA' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'] == 'Low-HVA' %>
+    value: 0
+    <% end %>
+    profile: oracle-database-19c-cis-baseline
+
 # oracle19c-3.8
   - name: sessions_per_user
     description: 'Number of concurrent sessions allowed'
@@ -76,6 +85,7 @@ inputs:
       - "oracle19c-3.3" # AC-2
       - "oracle19c-3.4" # AC-2
       - "oracle19c-3.5" # AC-2
+      - "oracle19c-3.6" # AC-2
     <% elsif ENV['BASELINE'] == 'Moderate-HVA' %>
     value: []
     <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'].nil? %> # Default
@@ -83,6 +93,7 @@ inputs:
       - "oracle19c-3.3" # AC-2
       - "oracle19c-3.4" # AC-2
       - "oracle19c-3.5" # AC-2
+      - "oracle19c-3.6" # AC-2
       - "oracle19c-6.1.12" # CM-6 (2)
       - "oracle19c-6.1.3"  # CM-6 (2)
     <% elsif ENV['BASELINE'] == 'Low-HVA' %>
@@ -95,6 +106,7 @@ inputs:
       - "oracle19c-3.3" # AC-2
       - "oracle19c-3.4" # AC-2
       - "oracle19c-3.5" # AC-2
+      - "oracle19c-3.6" # AC-2
       - "oracle19c-3.8" # AC-6 
       - "oracle19c-3.9" # AC-6 
       - "oracle19c-4.2" # AC-6 
