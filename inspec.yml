@@ -46,6 +46,15 @@ inputs:
     <% end %>
     profile: oracle-database-19c-cis-baseline
 
+# oracle19c-3.4
+  - name: password_reuse_max
+    description: 'Number of password changes required before the current password can be reused. Acceptable values are any integer or "UNLIMITED" to disallow reuse'
+    type: String
+    <% if ENV['BASELINE'] == 'High-HVA' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'] == 'Low-HVA' %>
+    value: 'UNLIMITED' # decoded to '9999' | reuse disallowed
+    <% end %>
+    profile: oracle-database-19c-cis-baseline
+
 # oracle19c-3.6
   - name: password_grace_time
     description: 'Number of days that can pass after password expiration before account lockout'
