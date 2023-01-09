@@ -26,10 +26,10 @@ inputs:
 
 # oracle19c-3.2
   - name: password_lock_time
-    description: 'Number of days that user accounts are locked after set number of failed login attempts'
-    type: Numeric
+    description: 'Number of days that user accounts are locked after set number of failed login attempts. Acceptable values are any number, fraction, decimal, or "UNLIMITED"'
+    type: String
     <% if ENV['BASELINE'] == 'High' || ENV['BASELINE'] == 'High-HVA' %>
-    value: '9999' # UNLIMITED | locked until released by admin
+    value: 'UNLIMITED' # decoded to '9999' | locked until released by admin
     <% elsif ENV['BASELINE'] == 'Moderate' || ENV['BASELINE'] == 'Moderate-HVA || ENV['BASELINE'].nil? %>
     value: '1/24' # 1 hour
     <% elsif ENV['BASELINE'] == 'Low' || ENV['BASELINE'] == 'Low-HVA' %>
