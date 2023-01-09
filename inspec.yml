@@ -13,6 +13,11 @@ depends:
     url: https://github.com/mitre/oracle-database-19c-cis-baseline/archive/parameterize.tar.gz
 
 inputs:
+  - name: system_categorization
+    desc: "Selected system baseline based on the environment variable"
+    type: String
+    value: <%= ENV['BASELINE'].nil? ? 'Moderate (Default)' : ENV['BASELINE'] %>
+    
 # oracle19c-3.1
   - name: failed_login_attempts
     description: 'Number of failed login attempts'
