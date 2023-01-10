@@ -18,6 +18,31 @@ inputs:
     type: String
     value: <%= ENV['BASELINE'].nil? ? 'Moderate (Default)' : ENV['BASELINE'] %>
     
+  - name: user
+    sensitive: true
+    description: 'username Oracle DB'
+    type: String
+    required: true
+    value: 'SYSTEM'
+
+  - name: password
+    sensitive: true
+    description: 'password Oracle DB'
+    type: String
+    required: true
+
+  - name: host
+    sensitive: true
+    description: 'hostname Oracle DB'
+    type: String
+    required: true
+
+  - name: service
+    sensitive: true
+    description: 'service name Oracle DB'
+    type: String
+    required: true
+
 # oracle19c-3.1
   - name: failed_login_attempts
     description: 'Number of failed login attempts'
