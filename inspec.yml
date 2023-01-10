@@ -23,28 +23,24 @@ inputs:
     description: 'username Oracle DB'
     type: String
     required: true
-    value: 'SYSTEM'
 
   - name: password
     sensitive: true
     description: 'password Oracle DB'
     type: String
     required: true
-    value: ''
 
   - name: host
     sensitive: true
     description: 'hostname Oracle DB'
     type: String
     required: true
-    value: ''
 
   - name: service
     sensitive: true
     description: 'service name Oracle DB'
     type: String
     required: true
-    value: ''
 
 # oracle19c-3.1
   - name: failed_login_attempts
