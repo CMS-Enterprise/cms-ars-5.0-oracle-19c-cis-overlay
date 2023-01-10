@@ -23,6 +23,7 @@ inputs:
     description: 'username Oracle DB'
     type: String
     required: true
+    value: 'SYSTEM'
 
   - name: password
     sensitive: true
