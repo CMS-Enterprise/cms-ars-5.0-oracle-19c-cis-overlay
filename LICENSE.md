@@ -1,4 +1,3 @@
-
 Licensed under the apache-2.0 license, except as noted below.  
 
 Redistribution and use in source and binary forms, with or without modification, 
